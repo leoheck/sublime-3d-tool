@@ -21,7 +21,7 @@
 ---
 name: Tool 3D
 scopeName: source.3dt
-fileTypes: [unc, nonunc, eqn, 3dt]
+fileTypes: [unc, nounc, eqn, 3dt]
 uuid: 31ebe050-a310-445d-831e-e2167b5b069a
 
 patterns:

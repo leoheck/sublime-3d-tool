@@ -5,7 +5,7 @@
 	<key>fileTypes</key>
 	<array>
 		<string>unc</string>
-		<string>nonunc</string>
+		<string>nounc</string>
 		<string>eqn</string>
 		<string>3dt</string>
 	</array>
