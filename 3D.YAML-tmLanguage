@@ -79,7 +79,7 @@ patterns:
 - comment: dontcare transition
   match: ([a-zA-Z][.a-zA-Z0-9]*)((?i:\*))
   captures:
-    '0': {name: constant.character.3dt}
+    '0': {name: string.quoted.single.3dt}
 
 - comment: expression
   match: ([a-zA-Z][.a-zA-Z0-9]*)(\s)*(\=)

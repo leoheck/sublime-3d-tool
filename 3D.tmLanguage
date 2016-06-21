@@ -89,7 +89,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>constant.character.3dt</string>
+					<string>string.quoted.single.3dt</string>
 				</dict>
 			</dict>
 			<key>comment</key>
