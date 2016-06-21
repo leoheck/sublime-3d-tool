@@ -67,7 +67,7 @@
 			<key>comment</key>
 			<string>1-&gt;0 transition</string>
 			<key>match</key>
-			<string>([a-zA-Z][_a-zA-Z0-9]*)((?i:\+))</string>
+			<string>([a-zA-Z][.a-zA-Z0-9]*)((?i:\+))</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -81,7 +81,7 @@
 			<key>comment</key>
 			<string>0-&gt;1 transition</string>
 			<key>match</key>
-			<string>([a-zA-Z][_a-zA-Z0-9]*)((?i:\-))</string>
+			<string>([a-zA-Z][.a-zA-Z0-9]*)((?i:\-))</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -95,7 +95,7 @@
 			<key>comment</key>
 			<string>dontcare transition</string>
 			<key>match</key>
-			<string>([a-zA-Z][_a-zA-Z0-9]*)((?i:\*))</string>
+			<string>([a-zA-Z][.a-zA-Z0-9]*)((?i:\*))</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -114,7 +114,7 @@
 			<key>comment</key>
 			<string>expression</string>
 			<key>match</key>
-			<string>([a-zA-Z][_a-zA-Z0-9]*)(\s)*(\=)</string>
+			<string>([a-zA-Z][.a-zA-Z0-9]*)(\s)*(\=)</string>
 		</dict>
 	</array>
 	<key>scopeName</key>

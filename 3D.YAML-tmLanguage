@@ -67,22 +67,22 @@ patterns:
 # [xxxx]
 
 - comment: 1->0 transition
-  match: ([a-zA-Z][_a-zA-Z0-9]*)((?i:\+))
+  match: ([a-zA-Z][.a-zA-Z0-9]*)((?i:\+))
   captures:
     '0': {name: keyword.operator.3dt}
 
 - comment: 0->1 transition
-  match: ([a-zA-Z][_a-zA-Z0-9]*)((?i:\-))
+  match: ([a-zA-Z][.a-zA-Z0-9]*)((?i:\-))
   captures:
     '0': {name: constant.character.3dt}
 
 - comment: dontcare transition
-  match: ([a-zA-Z][_a-zA-Z0-9]*)((?i:\*))
+  match: ([a-zA-Z][.a-zA-Z0-9]*)((?i:\*))
   captures:
     '0': {name: constant.character.3dt}
 
 - comment: expression
-  match: ([a-zA-Z][_a-zA-Z0-9]*)(\s)*(\=)
+  match: ([a-zA-Z][.a-zA-Z0-9]*)(\s)*(\=)
   captures:
     '0': {name: keyword.operator.3dt}
     '1': {name: string.quoted.single.3dt}
