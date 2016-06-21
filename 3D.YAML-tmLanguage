@@ -1,0 +1,89 @@
+# Leandro Sehnem Heck (leoheck@gmail.com)
+
+# Use F7 to convert this .YAML-tmlanguage to sublime .tmLanguage (property list) files
+
+# Sublime text documentation:
+# http://docs.sublimetext.info/en/latest/extensibility/syntaxdefs.html
+
+# Sublime text (textmate) scopes (syntax colors):
+# http://stackoverflow.com/questions/10834765/where-to-find-a-list-of-scopes-for-sublime2-or-textmate
+# http://manual.macromates.com/en/language_grammars
+
+
+# EXEMPLO BOM, OLHAR
+# https://github.com/SublimeText/AAAPackageDev/blob/master/Syntax%20Definitions/Sublime%20Text%20Syntax%20Def%20(YAML).YAML-tmLanguage
+
+# http://docs.sublimetext.info/en/latest/extensibility/syntaxdefs.html
+
+
+# Automatic  Synthesis of 3D Asynchronous State  Machines
+
+---
+name: Tool 3D
+scopeName: source.3dt
+fileTypes: [unc, nonunc, eqn, 3dt]
+uuid: 31ebe050-a310-445d-831e-e2167b5b069a
+
+patterns:
+
+- comment: P3dtICE|NG3dtIE inline comment
+  name: comment.line.character.3dt
+  begin: \;
+  end: $
+
+# - comment: Charactes that are treated like 3dtaces
+#   name: comment.line.character.3dt
+#   match: \(|\)|\,|\=
+
+
+- comment: NOT
+  match: \'
+  name: constant.character.3dt
+
+# - comment: AND
+#   match: \*
+#   name: string.quoted.single.3dt
+
+- comment: OR
+  match: \+
+  name: constant.character.3dt
+
+# - comment: Equal
+  # match: \=
+  # name: string.quoted.single.3dt
+
+- comment: PIPE
+  match: \|
+  name: string.quoted.single.3dt
+
+
+- comment: PIPE
+  match: input|output
+  name: keyword.operator.3dt
+
+# [xxx]+
+# [xxx]-
+# [xxx]*
+# [xxxx]
+
+- comment: 1->0 transition
+  match: ([a-zA-Z][_a-zA-Z0-9]*)((?i:\+))
+  captures:
+    '0': {name: keyword.operator.3dt}
+
+- comment: 0->1 transition
+  match: ([a-zA-Z][_a-zA-Z0-9]*)((?i:\-))
+  captures:
+    '0': {name: constant.character.3dt}
+
+- comment: dontcare transition
+  match: ([a-zA-Z][_a-zA-Z0-9]*)((?i:\*))
+  captures:
+    '0': {name: constant.character.3dt}
+
+- comment: expression
+  match: ([a-zA-Z][_a-zA-Z0-9]*)(\s)*(\=)
+  captures:
+    '0': {name: keyword.operator.3dt}
+    '1': {name: string.quoted.single.3dt}
+

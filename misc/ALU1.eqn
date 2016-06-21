@@ -1,0 +1,46 @@
+Prech_Set =
+  EvDone 
+
+Prech_Reset =
+  EvDone' M1A zzz01' +
+  start EvDone' M1A' A1M' 
+
+LB_Set =
+  EvDone 
+
+LB_Reset =
+  start' EvDone' 
+
+LA_Set =
+  EvDone zzz01 
+
+LA_Reset =
+  EvDone zzz01' 
+
+LU_Set =
+  EvDone zzz00 
+
+LU_Reset =
+  start' EvDone' +
+  EvDone' M1A 
+
+A1M_Set =
+  EvDone zzz01' 
+
+A1M_Reset =
+  start' EvDone' +
+  EvDone zzz01 
+
+zzz00_Set =
+  EvDone' M1A' zzz01 
+
+zzz00_Reset =
+  start' EvDone' +
+  EvDone' M1A 
+
+zzz01_Set =
+  EvDone' M1A 
+
+zzz01_Reset =
+  EvDone' M1A' 
+

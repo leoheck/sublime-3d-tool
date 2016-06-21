@@ -1,0 +1,71 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;	DiffEq Solver ALU1 control
+;;
+;;	Original spec by Vida Vakilotojar
+;;	Modified by Kenneth Yun (Apr 24, 1996)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+input	start	0
+input	EvDone	0	; ALU1 evaluation done
+input	M1A	0	; message from MUL1 control
+;;			;   + means M1 updated with U * X1
+;;			;   - means M1 updated with B * A
+;;			;   handshakes with A1M (A1M = REQ; M1A = ACK)
+
+output	Prech	1	; start precharging at power-up
+output	LB	0	; load B
+;;			;   0 means select 2dx and dx
+;;			;   1 means select Y/U and M1
+output	LA	0	; load A
+;;			;   0 means addition
+;;			;   1 means subtraction
+output	LU	0	; load U
+output	A1M	0	; broadcast message to MUL1 and MUL2 controls
+;;			;   + means U/B updated
+;;			;   - means A updated with Y + M1
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;  Start_2_Iterate:
+;;    When prompted to start,
+;;	begin evaluating 2dx + dx.
+;;    When 2dx + dx eval done,
+;;	store 3dx in B;
+;;	send message to MUL1 and MUL2 (A1M+);
+;;	begin precharging ALU1.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+0 1	start+		| Prech-
+1 2	EvDone+		| Prech+ LB+ A1M+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;  Iterate:
+;;    When U * X done by MUL1,
+;;	begin evaluating Y + M1.
+;;    When Y + M1 eval done,
+;;	store Y + M1 in A (LA+);
+;;	switch to subtract operation (LA+);
+;;	switch to U input (LA+);
+;;	send message to MUL1 and MUL2 (A1M-);
+;;	begin precharging ALU1.
+;;    When B * A done by MUL1,
+;;	begin evaluating U - M1.
+;;    When U - M1 eval done,
+;;	store U - M1 in U;
+;;	switch to add operation (LA-);
+;;	switch to Y input (LA-);
+;;	send message to MUL1 and MUL2 (A1M+);
+;;	begin precharging ALU1.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+2 3	EvDone-	M1A+	| Prech-
+3 4	EvDone+		| Prech+ LA+ A1M-
+4 5	EvDone-	M1A-	| Prech-
+5 6	EvDone+		| Prech+ LU+ LA- A1M+
+6 3	EvDone-	M1A+	| Prech- LU-
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;  Restart
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+2 0	EvDone- start-	| LB- A1M-
+6 0	EvDone- start-	| LB- LU- A1M-
