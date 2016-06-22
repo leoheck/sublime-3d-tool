@@ -21,7 +21,8 @@
 ---
 name: Tool 3D
 scopeName: source.3dt
-fileTypes: [unc, nounc, eqn, 3dt]
+# fileTypes: [unc, nounc, eqn, 3dt]
+fileTypes: [unc, nounc]
 uuid: 31ebe050-a310-445d-831e-e2167b5b069a
 
 patterns:
@@ -52,14 +53,18 @@ patterns:
   # match: \=
   # name: string.quoted.single.3dt
 
-- comment: PIPE
-  match: \|
-  name: string.quoted.single.3dt
+# - comment: PIPE
+  # match: \|
+  # name: string.quoted.single.3dt
 
 
-- comment: PIPE
-  match: input|output
+- comment: Name
+  match: name
   name: keyword.operator.3dt
+
+- comment: Interface
+  match: input|output
+  name: entity.name.class.3dt
 
 # [xxx]+
 # [xxx]-
@@ -67,21 +72,23 @@ patterns:
 # [xxxx]
 
 - comment: 1->0 transition
-  match: ([a-zA-Z][.a-zA-Z0-9]*)((?i:\+))
+  match: ([a-zA-Z][.a-zA-Z0-9]*\+)[\]\s]
   captures:
-    '0': {name: keyword.operator.3dt}
+    '1': {name: keyword.operator.3dt}
 
 - comment: 0->1 transition
-  match: ([a-zA-Z][.a-zA-Z0-9]*)((?i:\-))
+  match: ([a-zA-Z][.a-zA-Z0-9]*\-)[\]\s]
   captures:
-    '0': {name: constant.character.3dt}
+    '1': {name: constant.numeric.3dt}
 
 - comment: dontcare transition
-  match: ([a-zA-Z][.a-zA-Z0-9]*)((?i:\*))
+  match: ([a-zA-Z][.a-zA-Z0-9]*\*)[\]\s]
   captures:
-    '0': {name: string.quoted.single.3dt}
+    '1': {name: string.quoted.single.3dt}
 
-- comment: expression
+
+
+- comment: Eqn file expression (mudar isso pra outro arquivo)
   match: ([a-zA-Z][.a-zA-Z0-9]*)(\s)*(\=)
   captures:
     '0': {name: keyword.operator.3dt}

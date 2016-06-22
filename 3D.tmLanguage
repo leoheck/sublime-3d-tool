@@ -6,8 +6,6 @@
 	<array>
 		<string>unc</string>
 		<string>nounc</string>
-		<string>eqn</string>
-		<string>3dt</string>
 	</array>
 	<key>name</key>
 	<string>Tool 3D</string>
@@ -41,24 +39,24 @@
 		</dict>
 		<dict>
 			<key>comment</key>
-			<string>PIPE</string>
+			<string>Name</string>
 			<key>match</key>
-			<string>\|</string>
-			<key>name</key>
-			<string>string.quoted.single.3dt</string>
-		</dict>
-		<dict>
-			<key>comment</key>
-			<string>PIPE</string>
-			<key>match</key>
-			<string>input|output</string>
+			<string>name</string>
 			<key>name</key>
 			<string>keyword.operator.3dt</string>
 		</dict>
 		<dict>
+			<key>comment</key>
+			<string>Interface</string>
+			<key>match</key>
+			<string>input|output</string>
+			<key>name</key>
+			<string>entity.name.class.3dt</string>
+		</dict>
+		<dict>
 			<key>captures</key>
 			<dict>
-				<key>0</key>
+				<key>1</key>
 				<dict>
 					<key>name</key>
 					<string>keyword.operator.3dt</string>
@@ -67,26 +65,26 @@
 			<key>comment</key>
 			<string>1-&gt;0 transition</string>
 			<key>match</key>
-			<string>([a-zA-Z][.a-zA-Z0-9]*)((?i:\+))</string>
+			<string>([a-zA-Z][.a-zA-Z0-9]*\+)[\]\s]</string>
 		</dict>
 		<dict>
 			<key>captures</key>
 			<dict>
-				<key>0</key>
+				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>constant.character.3dt</string>
+					<string>constant.numeric.3dt</string>
 				</dict>
 			</dict>
 			<key>comment</key>
 			<string>0-&gt;1 transition</string>
 			<key>match</key>
-			<string>([a-zA-Z][.a-zA-Z0-9]*)((?i:\-))</string>
+			<string>([a-zA-Z][.a-zA-Z0-9]*\-)[\]\s]</string>
 		</dict>
 		<dict>
 			<key>captures</key>
 			<dict>
-				<key>0</key>
+				<key>1</key>
 				<dict>
 					<key>name</key>
 					<string>string.quoted.single.3dt</string>
@@ -95,7 +93,7 @@
 			<key>comment</key>
 			<string>dontcare transition</string>
 			<key>match</key>
-			<string>([a-zA-Z][.a-zA-Z0-9]*)((?i:\*))</string>
+			<string>([a-zA-Z][.a-zA-Z0-9]*\*)[\]\s]</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -112,7 +110,7 @@
 				</dict>
 			</dict>
 			<key>comment</key>
-			<string>expression</string>
+			<string>Eqn file expression (mudar isso pra outro arquivo)</string>
 			<key>match</key>
 			<string>([a-zA-Z][.a-zA-Z0-9]*)(\s)*(\=)</string>
 		</dict>
