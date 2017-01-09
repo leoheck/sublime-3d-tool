@@ -1,9 +1,8 @@
 
-# 3D Tool Syntax Highlight for Sublime Text
+# 3D for Sublime Text
 
-3D is a tool for Asyncronous circuits based on Extended-Burst Mode. [3d project page](http://apt.cs.manchester.ac.uk/ftp/pub/apt/www/async/tools/3d.html).
+[3D](http://apt.cs.manchester.ac.uk/ftp/pub/apt/www/async/tools/3d.html) is a tool to descriebe asyncronous circuits based on Extended-Burst Mode Specification.
 
-# Screenshot
 ![screenshot](https://github.com/leoheck/sublime-3d-tool/blob/master/misc/sample.png?raw=true "Optional Title")
 
 # Extra References
