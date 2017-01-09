@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>unc</string>
+		<string>nounc</string>
+	</array>
+	<key>name</key>
+	<string>Tool 3D</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>begin</key>
+			<string>\;</string>
+			<key>comment</key>
+			<string>P3dtICE|NG3dtIE inline comment</string>
+			<key>end</key>
+			<string>$</string>
+			<key>name</key>
+			<string>comment.line.character.3dt</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>NOT</string>
+			<key>match</key>
+			<string>\'</string>
+			<key>name</key>
+			<string>constant.character.3dt</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>OR</string>
+			<key>match</key>
+			<string>\+</string>
+			<key>name</key>
+			<string>constant.character.3dt</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Name</string>
+			<key>match</key>
+			<string>name</string>
+			<key>name</key>
+			<string>keyword.operator.3dt</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Interface</string>
+			<key>match</key>
+			<string>input|output</string>
+			<key>name</key>
+			<string>entity.name.class.3dt</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.3dt</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>1-&gt;0 transition</string>
+			<key>match</key>
+			<string>([a-zA-Z][.a-zA-Z0-9]*\+)[\]\s]</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.3dt</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>0-&gt;1 transition</string>
+			<key>match</key>
+			<string>([a-zA-Z][.a-zA-Z0-9]*\-)[\]\s]</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>string.quoted.single.3dt</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>dontcare transition</string>
+			<key>match</key>
+			<string>([a-zA-Z][.a-zA-Z0-9]*\*)[\]\s]</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.3dt</string>
+				</dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>string.quoted.single.3dt</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Eqn file expression (mudar isso pra outro arquivo)</string>
+			<key>match</key>
+			<string>([a-zA-Z][.a-zA-Z0-9]*)(\s)*(\=)</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.3dt</string>
+	<key>uuid</key>
+	<string>31ebe050-a310-445d-831e-e2167b5b069a</string>
+</dict>
+</plist>
