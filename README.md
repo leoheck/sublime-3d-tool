@@ -5,8 +5,5 @@
 
 ![screenshot](https://github.com/leoheck/sublime-3d-tool/blob/master/misc/sample.png?raw=true "syntax hilight")
 
-# Extra References
+### Extra References
 [List of async tools](http://web.engr.oregonstate.edu/~sllu/async/tools.html).
-
-
-
