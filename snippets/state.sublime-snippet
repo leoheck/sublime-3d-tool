@@ -1,0 +1,9 @@
+
+<snippet>
+<tabTrigger>state</tabTrigger>
+<scope>source.3dt</scope>
+<content>
+${1:from-state} ${2:to-state} ${3:starting-transitions} | ${4:end-transitions}
+</content>
+<description>state creation</description>
+</snippet>

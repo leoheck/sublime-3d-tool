@@ -1,0 +1,9 @@
+
+<snippet>
+<tabTrigger>out</tabTrigger>
+<scope>source.3dt</scope>
+<content>
+output ${1:port-name} ${2:initial-state}
+</content>
+<description>port declaration</description>
+</snippet>
